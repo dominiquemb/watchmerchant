@@ -1,0 +1,19 @@
+{
+    "WMUK_ENVIRONMENT": "staging",
+    "PORT": 8000,
+    "RDS_HOSTNAME": "localhost",
+    "RDS_PORT": 3306,
+    "RDS_DB_NAME": "wmuk_staging",
+    "RDS_USERNAME": "wmuk",
+    "RDS_PASSWORD": "wmuk",
+    "advertImageUploadBucket": "assets.watchmerchantuk.com",
+    "advertImportBucket": "wmuk-adverts-dropzone-staging",
+    "advertImportQueueUrl": "https://sqs.eu-west-1.amazonaws.com/083051135889/advertImportQueueStaging",
+    "sendEmails": true,
+    "stripeSecretKey": "sk_test_Bl9dkvOSzrtYW3OfXdDf8MdJ",
+    "googleMapsAPIKey": "AIzaSyD_wKVxM7wyLg4_7_FjOPgIEq2DYrWLuZk",
+    "hubspotAPIKey": "6f9230b3-399b-4c20-9bb7-47540850aeb1",
+    "AWS_REGION": "eu-west-1",
+    "AWS_ACCESS_KEY_ID": "AKIAIEZLXRAPIXZLN67A",
+    "AWS_SECRET_ACCESS_KEY": "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"
+}

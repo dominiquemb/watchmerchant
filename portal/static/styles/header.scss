@@ -1,0 +1,137 @@
+@import 'global';
+
+header {
+    z-index: 100;
+    position: absolute;
+    background-color: hsla(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    height: calc(#{$logoHeight} + 25px);
+    @include respond-to($desktop) {
+        height: calc(#{$logoHeight} + 50px);
+    }
+    width: 100%;
+    .logo-container {
+        position: absolute;
+        z-index: 102;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        img {
+            height: $logoHeight;
+            @include respond-to($desktop) {
+                height: calc(#{$logoHeight} + 25px);
+            }
+        }
+    }
+
+    nav {
+        &.desktop {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            z-index: 101;
+            width: 40%;
+            @include respond-to($desktop) {
+                display: flex;
+            }
+            @include respond-to($mobile) {
+                display: none;
+            }
+            justify-content: flex-end;
+            align-items: center;
+            ul {
+                display: inline;
+                padding-right: 30px;
+                li {
+                    font-family: $body;
+                    font-size: 12px;
+                    letter-spacing: 1.02px;
+                    list-style: none;
+                    display: inline-block;
+                    text-transform: uppercase;
+                    color: $gold;
+                    padding: 0 20px;
+                    &:not(:last-of-type) {
+                        border-right: 1px solid $gold;
+                    }
+                }
+            }
+            input {
+                height: 1em;
+                padding: 0.5em;
+                background-color: hsl(0, 0%, 100%);
+                width: 190px;
+            }
+            a {
+                text-decoration: none;
+                color: hsl(43, 44, 45);
+
+                &.active-page {
+                    box-shadow: 0px 3px 0px $gold;
+                }
+            }
+        }
+
+        &.mobile {
+            width: 100%;
+            display: none;
+            position: absolute;
+            top: calc(#{$logoHeight} + 25px);
+            z-index: 1000;
+            height: 100%;
+
+            .mobile-nav-wrapper {
+                display: block;
+                background-color: rgba(0, 0, 0, 0.9);
+                div.nav-item {
+                    display: block;
+                    padding: 5px 10px;
+                    margin: 0;
+                    width: calc(100% - 30px);
+                    
+                    a {
+                        font-family: $body;
+                        font-size: 12px;
+                        letter-spacing: 1.02px;
+                        list-style: none;
+                        display: block;
+                        text-transform: uppercase;
+                        color: $gold;
+                        width: calc(100% - 30px);
+                        border: 1px solid $gold;
+                        text-align: center;
+                        padding: 10px;
+                        margin: 10px;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .hamburger {
+        @include respond-to($desktop) {
+            display: none;
+        }
+        z-index: 110;
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        color: hsl(43, 44, 45);
+        cursor: pointer;
+        background: none;
+        border: 0;
+    }
+}
+
+.header-bumper {
+    height: $logoHeight;
+    @include respond-to($desktop) {
+        height: calc(#{$logoHeight} + 50px);
+    }
+    width: 100%;
+    background-color: rgba(0, 0, 0 ,0);
+}

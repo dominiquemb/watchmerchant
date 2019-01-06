@@ -1,0 +1,154 @@
+<div class="landing-page">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1><strong>The dedicated marketplace</strong> to<br />buy or sell luxury watches</h1>
+    <h3>Search thousands of watches for sale</h3>
+    <div class="button-container">
+      <button (click)="gotoSearch()"><strong>Find</strong> my next watch</button>
+    </div>
+  </div>
+</div>
+
+<div class="container second">
+  <div class="row icons">
+    <div class="col-xs-12 col-md-4 align-center trusted">
+      <strong>Trusted Sellers</strong>
+    </div>
+    <div class="col-xs-12 col-md-4 align-center secure">
+      <strong>Secure Checkout</strong>
+    </div>
+    <div class="col-xs-12 col-md-4 align-center gdpr">
+      <strong>GDPR Compliant</strong>
+    </div>
+  </div>
+  <div class="row free-listings">
+    <div class="align-center">
+      <a routerLink="account/details/packages">
+        <p><strong>12 Months' FREE Listings*</strong></p>
+        <p>Sign Up Today</p>
+      </a>
+    </div>
+  </div>
+  <div class="row new-arrivals" *ngIf="newArrivals && newArrivals.length">
+    <h2 class="gold-text align-center">New, Unworn &amp; Pre-Owned Watches online in one place</h2>
+    <h4 class="align-center">Check out our <strong>New Arrivals</strong></h4>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3 na-container" *ngFor="let na of newArrivals">
+          <div class="new-arrival" routerLink="/{{na.product.brand.slug}}/{{na.product.model.toLowerCase()}}/{{na.id}}">
+            <img [src]="na.images[0]" *ngIf="na.images.length" />
+            <div class="gold-strapline"><span>New Arrival</span></div>
+            <div class="quartz-info">
+              <p><strong>{{na.product.brand.name}}</strong> {{na.product.model}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="thousands container-fluid">
+  <hr />
+  <h2 class="gold-text align-center"><strong>Thousands</strong> of watches online</h2>
+  <h3 class="align-center">Simple, Easy &amp; Quick</h3>
+  <div class="row">
+    <div class="col-xs-12 col-md-4 align-center" *ngFor="let reason of reasons">
+      <img src={{reason.imageUrl}} alt={{reason.header}} />
+      <h5>{{reason.header}}</h5>
+      <p>{{reason.text}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="brand-bar container-fluid">
+  <div class="row">
+    <div class="col-6 col-md-2" *ngFor="let brandLogo of brandLogos">
+      <div class="brand-logo">
+        <img routerLink="/search/brand/{{brandLogo.name}}" src="{{brandLogo.url}}" alt="{{brandLogo.name}}" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="splash container">
+  <div class="row">
+    <div class="col-xs-12 col-md-7">
+      <div class="row">
+        <div class="col">
+          <div class="vip">
+            <div class="button-container">
+              <button routerLink="vip">Take Me There</button>
+              <button routerLink="services">More Info</button>
+            </div>
+            <div class="text-container">
+              <h3>VIP Appointment Booking</h3>
+              <p>Book an appointment with a Dealer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="seller">
+            <div class="button-container">
+              <button routerLink="signup">Take Me There</button>
+              <button routerLink="services">More Info</button>
+            </div>
+            <div class="text-container">
+              <h3>Become a Watch Merchant UK Dealer</h3>
+              <p>Sign up today and get started immediately</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-5">
+      <div class="row">
+        <div class="col">
+          <div class="broker">
+            <div class="button-container">
+              <button routerLink="broker">Take Me There</button>
+              <button routerLink="services">More Info</button>
+            </div>
+            <div class="text-container">
+              <h3>Broker Service</h3>
+              <p>Submit your request and get quotes from Dealers within minutes</p>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </div>
+  </div>
+</div>
+
+<div class="testimonial container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-4 d-flex chronofinder-logo align-center">
+            <img src="/assets/images/chronofinder.png" alt="Chronofinder" />
+          </div>
+          <div class="col-xs-12 col-md-4 d-flex align-center">
+            <h5>Callum | Chrono Finder</h5>
+            <p>www.chronofinder.com</p>
+          </div>
+          <div class="col-xs-12 col-md-4 d-flex align-center">
+            <p>"I've seen a lot about Watch Merchant UK. It's interesting and should be useful for the trade. I'm 
+              looking forward to testing it out."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid quotation">
+  <div class="row">
+    <div class="col d-flex">
+      <h3>"Time is precious, spend it wisely"</h3>
+      <h3>- Watch Merchant UK</h3>
+    </div>
+  </div>
+</div>

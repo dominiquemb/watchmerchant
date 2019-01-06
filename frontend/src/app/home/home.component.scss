@@ -1,0 +1,435 @@
+@import '../../styles.scss';
+
+.landing-page {
+    position: relative;
+    background-image: url('/assets/images/shutterstock_585751064.jpg');
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 125px;
+
+    .content {
+        height: 100%;
+        position: relative;
+        z-index: 11;
+        margin: 0 15px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        @include respond-to($desktop) {
+            padding-top: 25vh;
+            padding-left: 7.5vw;
+            height: 70%;
+        }
+        h1, h3 {
+            width: 100%;
+            text-align: center;
+            @include respond-to($desktop) {
+                text-align: left;
+            }
+        }
+        h1 {
+            color: $quartz;
+            font-weight: 300;
+            font-size: 3rem;
+            strong {
+                font-weight: 700;
+            }
+        }
+
+        h3 {
+            color: $quartz;
+            font-weight: 300;
+            font-size: 2rem;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            @include respond-to($desktop) {
+                justify-content: flex-start;
+            }
+            width: 100%;
+            button {
+                padding: 20px 30px;
+                background-color: $gold;
+                border: 1px solid $quartz;
+                color: $black;
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+.second {
+    background-color: $quartz;
+
+    .icons {
+        margin: 30px 0;
+
+        @include respond-to($desktop) {
+           > div {
+                strong {
+                    padding: 10px 50px;
+                    background-repeat: no-repeat;
+                    background-position: right center;
+                    background-size: contain;
+                    font-size: 1.5rem;
+                }
+            }
+            .trusted {
+                strong {
+                    background-image: url('/assets/images/trusted-sellers.png');
+                }
+            }
+            .secure {
+                strong {
+                    padding: 30px 85px;
+                    background-image: url('/assets/images/secure-checkout.png');
+                }
+            }
+            .gdpr {
+                strong {
+                    padding: 10px 60px;
+                    background-image: url('/assets/images/gdpr.png');
+                }
+            }
+        }
+    }
+
+    .free-listings {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('/assets/images/free-listings.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 80vh;
+        margin: 30px auto;
+        a {
+            color: $quartz;
+        }
+        > div {
+            background-color: maroon;
+            border: 2px solid $quartz;
+            color: $quartz;
+            padding: 25px;
+            font-size: 2.5rem;
+            @include respond-to($desktop) {
+                padding: 50px 100px;
+            }
+        }
+    }
+}
+
+.new-arrivals {
+    padding-top: 15px;
+
+    h2, h4 {
+        width: 100%;
+    }
+
+    h2 {
+        font-weight: 300;
+    }
+
+    h4 {
+        font-weight: 300;
+    }
+    
+    .na-container {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .new-arrival {
+        margin-top: 15px;
+        background-color: $black;
+        height: 30vh;
+        color: $quartz;
+        position: relative;
+        border-bottom: 5px solid $gold;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        width: 90%;
+
+        img {
+            height: 30vh;
+            margin: 0 auto;
+        }
+
+        .gold-strapline {
+            position: absolute;
+            top: 15px;
+            right: 0;
+            padding: 2px 7px;
+            background-color: $gold-0_8;
+            color: $quartz;
+            z-index: 10;
+            
+            p {
+                color: $quartz;
+                text-transform: uppercase;
+            }
+        }
+
+        .quartz-info {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            padding-left: 7px;
+            background-color: $quartz-0_8;
+            color: $black;
+            width: 85%;
+            z-index: 10;
+        }
+    }
+}
+
+
+.brand-bar {
+    margin: 50px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: $black;
+    color: $quartz;
+    padding: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    .row {
+        width: 95%;
+    }
+
+    .brand-logo {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+        height: 100px;
+        img {
+            max-height: 100%;
+            filter: invert(75%);
+            cursor: pointer;
+        }
+    }
+}
+
+.thousands {
+    padding-top: 40px;
+    hr {
+        width: 50%;
+        margin-bottom: 45px;
+        border-top: 2px solid #666;
+    }
+    .row {
+        > div {
+            padding-top: 50px;
+        }
+    }
+    img {
+        width: 65px;
+    }
+    h2, h3, h5, p {
+        width: 70%;
+        margin: 0 auto;
+    }
+    h2, h3 {
+        font-weight: 300;
+        strong {
+            font-weight: 700;
+        }
+    }
+    h2 {
+        font-size: 2.75rem;
+    }
+    h3 {
+        margin-top: 30px;
+        font-size: 2.25rem;
+    }
+
+    h5 {
+        font-weight: 300;
+        margin: 15px auto;
+    }
+
+    p {
+        font-size: 0.95rem;
+        font-weight: 300;
+        margin-top: 7px;
+    }
+}
+
+.splash {
+    .row {
+        > div {
+            margin-right: -15px;
+        }
+    }
+    .col-md-5 {
+        .row {
+            @include respond-to($desktop) {
+                height: calc(100% - 6px);
+            }
+        }
+    }
+    .vip, .seller, .broker {
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        min-height: 45vh;
+        margin: 8px 15px;
+
+        .button-container, .text-container {
+            position: absolute;
+            button {
+                background-color: $gold;
+                border: 1px solid $quartz;
+                color: $black;
+                padding: 15px;
+                margin-left: 15px;
+            }
+        }
+        .text-container {
+            margin-left: -15px;
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            h3 {
+                color: $gold;
+                font-weight: bold;
+                margin-bottom: 7px;
+                
+            }
+            p {
+                color: $quartz;
+            }
+        }
+    }
+    .vip {
+        background-image: url('/assets/images/vip.png');
+
+        .button-container {
+            top: 25px;
+            right: 25px;
+            z-index: 10;
+        }
+        .text-container {
+            left: 15px;
+            bottom: 0px;
+        }
+    }
+    .seller {
+        background-image: url('/assets/images/handshake.jpg');
+        
+        .button-container {
+            bottom: 25px;
+            right: 25px;
+        }
+        .text-container {
+            left: 15px;
+            p {
+                // color: $black;
+            }
+        }
+    }
+    .broker {
+        background-image: url('/assets/images/broker.jpeg');
+        @include respond-to($desktop) {
+            margin-left: -15px;
+            height: 100%;
+        }
+        .button-container {
+            bottom: 25px;
+            right: 25px;
+        }
+        .text-container {
+            left: 15px;
+        }
+    }
+}
+
+.testimonial {
+    background-color: $black;
+    color: $quartz;
+    padding: 15px;
+    margin-top: 13px;
+
+    .row {
+        > div {
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            h5, p {
+                width: 100%;
+                margin: 15px 0;
+            }
+            
+        }
+
+        > div:nth-of-type(2) {
+            h5, p {
+                color: $gold;
+            }
+        }
+
+        > div:nth-of-type(3) {
+            p {
+                color: $quartz;
+            }
+        }
+    }
+
+    .chronofinder-logo {
+        @include respond-to($desktop) {
+            padding-right: 50px;
+        }
+        
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+.quotation {
+    @include respond-to($desktop) {
+        margin-top: 15px;
+    }
+    min-height: 65vh;
+    background-image: url('/assets/images/time-is-precious.jpg');
+    background-size: cover;
+    .col {
+        flex-wrap: wrap;
+        text-align: center;
+        padding-top: 40%;
+        @include respond-to($desktop) {
+            padding-top: 10%;
+            padding-left: 60%;
+            text-align: left;
+        }
+        h3 {
+            width: 100%;
+            &:first-of-type {
+                color: $quartz;
+                font-style: italic;
+                font-weight: 300;
+            }
+            &:last-of-type {
+                color: $gold;
+                font-weight: 700;
+            }
+        }
+    }
+    
+}
+
+@keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}

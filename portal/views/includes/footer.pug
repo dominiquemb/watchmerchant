@@ -1,0 +1,25 @@
+- var facebookUrl = "//www.facebook.com/watchmerchant"
+- var twitterUrl = "//www.twitter.com/watchmerchant_"
+- var instagramUrl = "//www.instagram.com/watch_merchant_uk"
+
+footer
+    div(class="social-buttons")
+        if facebookUrl
+            .social-button
+                a(href=facebookUrl target="_blank")
+                    i.fab.fa-facebook-f.fa-2x
+        if twitterUrl
+            .social-button
+                a(href=twitterUrl target="_blank")
+                    i.fab.fa-twitter.fa-2x
+        if instagramUrl
+            .social-button
+                a(href=instagramUrl target="_blank")
+                    i.fab.fa-instagram.fa-2x
+    div(class="copyright")
+        p
+            a(href="/documents/brochure.pdf") Marketing Brochure
+        p &copy; Copyright 2018 | Watch Merchant UK | All Rights Reserved
+        .powered-by-stripe
+            .img-container
+                img(src="/images/powered_by_stripe.png")

@@ -1,0 +1,285 @@
+@import '../../styles.scss';
+
+header {
+/*    color: $quartz;
+*/
+    color: #fff;
+    background-color: $black;
+    height: 160px;
+
+    &.translucent {
+        background-color: rgba(0, 0, 0, 0.75);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+
+        input {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+    }
+
+    a {
+/*        color: $gold;
+*/
+	color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:hover {
+	color: $gold;
+    }
+
+    a:active {
+	color: $gold;
+    }
+
+    .links-and-search {
+	height: 175px;
+        padding: 35px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        .links, .search {
+            width: 100%;
+        }
+
+        .links {
+            a:not(:last-of-type) {
+/*                border-right: 1px solid $gold;
+*/
+                border-right: 1px solid #fff;
+            }
+            a {
+                padding: 0 15px;
+            }
+            margin-bottom: 30px;
+        }
+
+        .search {
+            input {
+                padding: 5px;
+                border-radius: 5px;
+                border: 0;
+                width: 350px;
+                background-color: #333;
+/*                color: $gold;
+*/
+		color: #fff;
+            }
+        }
+    }
+
+    .logo-container {
+        height: 160px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            height: 100px;
+        }
+    }
+
+    .login-signup {
+        padding: 35px;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
+        > div {
+            width: 100%;
+        }
+
+        a:not(:last-of-type) {
+/*            border-right: 1px solid $gold;
+*/
+            border-right: 1px solid #fff;
+        }
+        a {
+            padding: 0 15px;
+        }
+        margin-bottom: 40px;
+    }
+
+    .sell-my-watch {
+        padding: 14px;
+	padding-right: 0px;
+        button {
+            border: 4px solid #a28741;
+            color: #a28741;
+/*
+            border: 1px solid $quartz;
+*/
+            padding: 10px 15px;
+	    background-color: #000;
+            margin-top: 5px;
+            cursor: pointer;
+	    font-size: 17px;
+	    border-radius: 25px;
+	    font-family: sans-serif;
+        }
+    }
+
+    .hamburger {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 20;
+        button {
+            color: $gold;
+            background-color: transparent;
+            border: 0;
+        }
+    }
+
+    .mobile-nav {
+        position: absolute;
+        display: none;
+        top: 160px;
+        width: 100%;
+        margin: 0 -15px;
+        &.show {
+            height: calc(100vh - 160px);
+            display: block;
+        }
+        z-index: 100;
+        background-color: rgba(0, 0, 0, 0.9);
+        transition: max-height 1s;
+    }
+}
+
+::placeholder {
+/*    color: $gold;
+*/
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.brands-popup {
+    position: absolute;
+    z-index: 50;
+    border: 1px solid #1c1c1c;
+/*
+    top: 160px;
+*/
+    padding: 40px 40px 0px 40px;
+    top: 62px;
+    left: 0;
+    height: auto;
+/*    background: radial-gradient(circle at bottom, #222222, #050505);
+*/
+    background: radial-gradient(circle at bottom, #181818, #050505);
+/*
+    box-shadow: 2px 5px 10px #181818;
+    -moz-box-shadow: 2px 5px 10px #181818;
+    -webkit-box-shadow: 2px 4px 10px #181818;
+*/
+    box-shadow: 2px 5px 10px #000;
+    -moz-box-shadow: 2px 5px 10px #000;
+    -webkit-box-shadow: 2px 4px 10px #000;
+/*
+    width: 40%;
+*/
+    width: 875px;
+/*
+    padding-right: 15px;
+    padding-top: 15px;
+*/
+    display: none;
+    color: #fff;
+    background-color: $quartz;
+    padding-left: 30px;
+/*
+    border-bottom: 5px solid $gold;
+*/
+
+    a {
+        color: $gold;
+    }
+
+    .padded-column {
+	padding: 15px;
+    }
+
+    .brands-popup-images {
+	text-align: center;
+    }
+
+    .brand-link {
+	font-size: 20px;
+	font-weight: 100;
+	font-family: 'Cormorant Garamond', serif;
+    }
+
+    .brand-link-container {
+/*	height: 22px;
+*/
+	height: auto;
+    }
+
+    .get-in-touch {
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin-top: 25px;
+	font-family: 19px;
+
+	a {
+		text-decoration: underline;
+		font-family: 'Open Sans Condensed', sans-serif;
+	}
+    }
+
+    &.displayed {
+        display: block;
+    }
+
+    .most-commonly-searched-brands {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 17px;
+    }
+
+    .bottom-border {
+	margin-top: 40px;
+	width: 100%;
+	height: 2px;
+	position: relative;
+
+	.bottom-border-inner {
+	    	background: radial-gradient(circle at bottom, $gold, #241e0e);
+		position: absolute;
+		left: -55px;
+		right: -55px;
+		height: 2px;
+	}
+    }
+}
+@media only screen and (max-width: 768px) {
+	.links-and-search {
+		position: absolute;
+		top: 136px;
+		z-index: 13;
+	}
+
+	.links {
+		display: flex;
+		height: 30px !important;
+		justify-content: center;
+
+	}
+
+        .links a {
+/*                border-right: 1px solid $gold;
+*/
+                border-right: 1px solid #fff !important;
+            }
+
+	.mobile-search input {
+		width: 100% !important;
+	}
+
+	.login-signup {
+		padding: 0px !important;
+		margin: 0px !important;
+	}
+
+}

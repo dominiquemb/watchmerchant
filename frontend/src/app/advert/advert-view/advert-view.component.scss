@@ -1,0 +1,198 @@
+@import '../../../styles.scss';
+
+.breadcrumbs-container {
+    .breadcrumbs {
+        a {
+            color: $gold;
+        }
+    }
+}
+.advert {
+    margin-top: 50px;
+    .row:first-of-type {
+        .main-image-container {
+            text-align: center;
+            img {
+                max-height: 50vh;
+                cursor: pointer;
+            }
+        }
+
+        .title-row {
+            margin-bottom: 20px;
+            .title-container {
+                height: 10vh;
+            }
+        }
+
+        .quick-details-row {
+            height: calc(100% - 10vh);
+            margin-right: 0;
+            .quick-details {
+                width: calc(100% - 30px);
+                padding: 15px;
+                table {
+                    width: 100%;
+                    tr {
+                        td:first-of-type {
+                            width: 42%;
+                            padding: 7px 0;
+                        }
+                    }
+                }
+                button {
+                    margin-top: 15px;
+                    width: calc(100% + 30px);
+                }
+            }
+        }
+    }
+
+    .advert-images {
+        overflow-x: auto;
+        margin-bottom: 15px;
+        .col {
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            .image-thumbnail-container {
+                height: 250px;
+                margin: 0 7px;
+                img {
+                    height: 250px;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+    }
+
+    .full-details-row {
+        padding-top: 15px;
+        border: 1px solid $gold;
+
+        .sku {
+            padding-left: 35px;
+            padding-top: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        .full-details {
+            padding: 0 15px;
+            table {
+                width: 100%;
+                tr {
+                    th, td {
+                        padding: 7px;
+                        width: 20%;
+                    }
+                    th {
+                        
+                        &:first-of-type {
+                            padding: 10px 7px;
+                            padding-top: 0;
+                        }
+                    }
+                    td {
+                        padding-top: 0;
+                    }
+                }
+            }
+        }
+        .description {
+            // margin-top: 15px;
+            strong {
+                padding: 7px;
+            }
+            article {
+                padding: 7px;
+            }
+        }
+    }
+
+    .show-seller {
+        margin-top: 30px;
+        text-align: center;
+        button {
+            width: 50%;
+        }
+    }
+
+    .faq {
+        margin-top: 50px;
+        text-align: left;
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        ol {
+            margin-top: 15px;
+            margin-bottom: 30px;
+            padding-left: 15px;
+        }
+
+        p {
+            margin-top: 15px;
+        }
+
+        strong {
+            &:nth-of-type(2) {
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .seller-details {
+        margin: 15px -15px;
+        border: 1px solid $gold;
+        padding: 15px;
+        .address {
+            p {
+                margin: 0;
+                text-align: center;
+                &.url {
+                    margin: 15px;
+                }
+                &.member-since {
+                    margin-top: 15px;
+                }
+            }
+            button {
+                margin-top: 30px;
+            }
+            .datepicker-container {
+                padding-top: 30px;
+                text-align: center;
+            }
+        }
+
+        .contact-details {
+            margin-top: 7px;
+            a {
+                color: blue;
+            }
+        }
+
+        h5 {
+            text-align: center;
+        }
+    }
+}
+
+.image-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        max-height: 80vh;
+    }
+}

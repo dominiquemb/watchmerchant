@@ -1,0 +1,16 @@
+extends ../index
+
+block content
+    section.user-registration.first
+        div
+            h2 Register
+            form(method="POST")
+                table(cellspacing=0)
+                    tr
+                        td E-Mail Address
+                        td #[input(type="text" name="email")]
+                    tr
+                        td Password
+                        td #[input(type="password" name="password")]
+                    tr
+                        td(colspan=2) #[button Register]

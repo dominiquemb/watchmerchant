@@ -1,0 +1,46 @@
+<a class="back-to" routerLink="/account/details">Back to Account</a>
+
+<h1 class="align-center">Your Packages</h1>
+
+<div class="form-container" *ngIf="dataLoaded; else loading">
+  <form #packagesForm="ngForm" (ngSubmit)="updateSubscriptions()">
+    <div class="container-fluid">
+      <div class="row" *ngFor="let package of packages">
+        <div class="col-7">{{package.friendlyName}}<br /><br /><small>{{package.description}}</small></div>
+        <div class="col-5">
+          <button *ngIf="package.options.length === 1" (click)="subscribeToProductAndPlan(package.id, package.options[0].id)" [disabled]="package.options[0].subscribed"
+            class="gold">
+            <span *ngIf="!package.options[0].subscribed">
+              <strong>Subscribe</strong> (&pound;{{package.options[0].amount / 100}})</span>
+            <span *ngIf="package.options[0].subscribed">Subscribed</span>
+          </button>
+          <select name={{package.friendlyName}} (change)="subscribeToProductAndPlan(package.id, $event.target.value)" *ngIf="package.options.length > 1">
+            <option value="0">None</option>
+            <option *ngFor="let opt of package.options" value={{opt.id}} [selected]="opt.subscribed">{{opt.name}} (&pound;{{opt.amount / 100}} per {{opt.interval}})</option>
+          </select>
+          <p *ngIf="package.id == 'listing-adverts'" class="small-text">Need more than 1,000 slots? Call us for custom pricing!</p>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-1">
+          <input type="checkbox" name="terms" [(ngModel)]="terms" />
+        </div>
+        <div class="col-11">
+          <p>Tick this box to confirm that you understand and agree to Watch Merchant UK's terms and conditions, agree to be
+            billed as indicated for the services you have chosen and understand that these charges will be applied to your
+            default payment method.
+          </p>
+        </div>
+      </div>
+    </div>
+    <button class="gold" (click)="updateSubscriptions()" [disabled]="!terms">Update Subscription(s)</button>
+  </form>
+</div>
+
+<ng-template #loading>
+  <div class="loading">
+    <img src="/assets/images/loading.gif" alt="Loading" />
+  </div>
+</ng-template>

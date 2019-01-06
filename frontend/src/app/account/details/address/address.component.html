@@ -1,0 +1,17 @@
+<a class="back-to" routerLink="/account/details">Back to Account</a>
+
+<h1 class="align-center">Address</h1>
+
+<div class="form-container">
+  <form #addressForm="ngForm" (submit)="updateAddress()">
+    <input type="text" name="companyName" [(ngModel)]="companyName" placeholder="Company Name" required />
+    <input type="text" name="companyReg" [(ngModel)]="companyReg" placeholder="Company Reg" />
+    <input type="text" name="email" [(ngModel)]="email" placeholder="E-Mail Address" required />
+    <input type="text" name="addressLine1" [(ngModel)]="addressLine1" placeholder="Address Line 1" />
+    <input type="text" name="addressLine2" [(ngModel)]="addressLine2" placeholder="Address Line 2" />
+    <input type="text" name="city" [(ngModel)]="city" placeholder="Town/City" />
+    <input type="text" name="county" [(ngModel)]="county" placeholder="County" />
+    <input type="text" name="postCode" [(ngModel)]="postCode" placeholder="Post Code" />
+    <button class="gold" [disabled]="!addressForm.valid">Confirm</button>
+  </form>
+</div>

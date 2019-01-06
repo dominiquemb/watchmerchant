@@ -1,0 +1,319 @@
+<div *ngIf="dataLoaded === undefined; else results">
+  <div *ngIf="searchResults === undefined; else results">
+    <h1 class="align-center" *ngIf="!showAdvancedSearch">Quick Search</h1>
+    <h1 class="align-center" *ngIf="showAdvancedSearch">Advanced Search</h1>
+    <form>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="row">
+              <div class="col-3">
+                <p>Make</p>
+              </div>
+              <div class="col-9">
+                <select name="brand" (change)="populateModelList($event.target.value)" [(ngModel)]="brand">
+                  <option *ngFor="let brand of brandList" value="{{brand.id}}">{{brand.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <p>Model</p>
+              </div>
+              <div class="col-9">
+                <select name="model" [(ngModel)]="model">
+                  <option *ngFor="let product of productList" value="{{product.model}}">{{product.model}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <p>Year</p>
+              </div>
+              <div class="col-9">
+                <input type="text" name="year" [(ngModel)]="year" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <p>Price</p>
+              </div>
+              <div class="col-9">
+                <input type="text" name="price" [(ngModel)]="price" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <p>Condition</p>
+              </div>
+              <div class="col-9">
+                <select name="condition" [(ngModel)]="condition">
+                  <option value="new" selected>New</option>
+                  <option value="used">Used</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Box</p>
+              </div>
+              <div class="col-9">
+                <select name="box" [(ngModel)]="box">
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Papers</p>
+              </div>
+              <div class="col-9">
+                <select name="papers" [(ngModel)]="papers">
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Rating</p>
+              </div>
+              <div class="col-9">
+                <input type="number" name="rating" [(ngModel)]="rating" />
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Serviced</p>
+              </div>
+              <div class="col-9">
+                <select name="serviced" [(ngModel)]="serviced">
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Minimum Warranty (months)</p>
+              </div>
+              <div class="col-9">
+                <input type="text" name="minWarranty" [(ngModel)]="minWarranty" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <div class="row">
+              <div class="col-4">
+                <p>Your Postcode</p>
+              </div>
+              <div class="col-8">
+                <input type="text" name="postCode" [(ngModel)]="postCode" />
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Model Number</p>
+              </div>
+              <div class="col-9">
+                <input type="text" name="modelNumber" [(ngModel)]="modelNumber" />
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Case Material</p>
+              </div>
+              <div class="col-9">
+                <input type="text" name="caseMaterial" [(ngModel)]="caseMaterial" />
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Case Diameter</p>
+              </div>
+              <div class="col-9">
+                <input type="number" name="caseDiameter" [(ngModel)]="caseDiameter" />
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Dial Colour</p>
+              </div>
+              <div class="col-9">
+                <input type="text" name="dialColour" [(ngModel)]="dialColour" />
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Strap Material</p>
+              </div>
+              <div class="col-9">
+                <input type="text" name="strapMaterial" [(ngModel)]="strapMaterial" />
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Gemstones</p>
+              </div>
+              <div class="col-9">
+                <select name="gemstones" [(ngModel)]="gemstones">
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Movement</p>
+              </div>
+              <div class="col-9">
+                <select name="movement" [(ngModel)]="movement">
+                  <option value="automatic">Automatic</option>
+                  <option value="manual">Manual</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Gender</p>
+              </div>
+              <div class="col-9">
+                <select name="gender" [(ngModel)]="gender">
+                  <option value="mens">Mens</option>
+                  <option value="ladies">Ladies</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" *ngIf="showAdvancedSearch">
+              <div class="col-3">
+                <p>Seller</p>
+              </div>
+              <div class="col-9">
+                <select name="sellerType">
+                  <option value="trade">Trade</option>
+                  <option value="private" disabled>Private (Coming soon!)</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" *ngIf="!showAdvancedSearch">
+              <div class="col-3"></div>
+              <div class="col-9 search-button">
+                <button (click)="search()" class="gold">Search</button>
+                <br />
+                <a href="javascript:void(0)" (click)="showAdvancedSearch = true">Advanced Search</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 search-button" *ngIf="showAdvancedSearch">
+            <button (click)="search()" class="gold">Search</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template #results>
+  <div class="container-fluid search-results" *ngIf="dataLoaded">
+    <h1 class="align-center">Results</h1>
+    <div class="row">
+      <div class="col-3">
+        <div class="row">
+          <div class="col-12">
+            <a href="javascript:void(0)" (click)="searchResults = undefined; dataLoaded = undefined;">
+              <h4>Back to Search</h4>
+            </a>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-6">
+        <h4 class="align-center">{{displayedResults.length}} watches matching your search criteria</h4>
+      </div>
+      <div class="col-3 align-right">
+        <select name="sort" (change)="sortResults($event.target.value)">
+          <option selected disabled>Sort by</option>
+          <option [selected]="sortBy == 'price-lowest'" value="price-lowest">Price (lowest)</option>
+          <option [selected]="sortBy == 'price-highest'" value="price-highest">Price (highest)</option>
+          <option [selected]="sortBy == 'age-newest'" value="age-newest">Age (newest)</option>
+          <option [selected]="sortBy == 'age-oldest'" value="age-oldest">Age (oldest)</option>
+          <option *ngIf="postCode" [selected]="sortBy == 'distance'" value="distance">Distance (nearest)</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 filters">
+        <div class="row">
+          <div class="col-12" id="filters">
+            <select class="results-filter" *ngFor="let filter of resultsFilters" #select (change)="localFilterResults(filter, select.value); sortBy && sortResults(sortBy)" [(ngModel)]="filter.value">
+              <option [attr.label]="filter.name" selected disabled>{{ filter.name }}</option>
+              <option *ngFor="let option of filter.options">{{ option }}</option>
+            </select>
+            <!-- <select name="maxDistance" [(ngModel)]="maxDistance" (change)="search()">
+              <option label="Distance (miles)" selected disabled>Distance (miles)</option>
+              <option *ngFor="let d of distanceOptions" value="{{d}}" [selected]="d === maxDistance">{{d}} miles</option>
+              <option value="0">National</option>
+            </select> -->
+          </div>
+          <!-- <div class="col-12" *ngFor="let f of getFiltersForDisplay()">
+            <p>
+              {{f.field}}
+              <span class="gold">{{f.value}}</span>
+            </p>
+          </div> -->
+        </div>
+      </div>
+      <div class="col-9 results">
+        <div class="row">
+          <div class="col-6 search-result-container" *ngFor="let result of displayedResults">
+            <div class="search-result">
+              <div class="row">
+                <div class="col-5">
+                  <img [src]="result.images[0]" *ngIf="result.images.length" />
+                  <p *ngIf="result.images.length > 1">{{result.images.length}} pictures</p>
+                  <p *ngIf="result.images.length === 1">1 picture</p>
+                  <p *ngIf="result.images.length === 0">No pictures</p>
+                </div>
+                <div class="col-7">
+                  <h3 routerLink="/{{result.product.brand.name.toLowerCase()}}/{{result.product.model.toLowerCase()}}/{{result.id}}">{{result.product.brand.name}} {{result.product.model}}</h3>
+                  <h5>&pound;{{(result.price / 100).toLocaleString()}}</h5>
+                  <table>
+                    <tr *ngIf="result.distance || result.distance === 0">
+                      <td>Distance</td>
+                      <td>{{result.roundedDistance}} km</td>
+                    </tr>
+                    <tr *ngIf="result.product.year">
+                      <td>Year</td>
+                      <td>{{result.product.year}}</td>
+                    </tr>
+                    <tr>
+                      <td>Condition</td>
+                      <td>{{result.isNew ? 'New' : 'Pre-Owned'}}</td>
+                    </tr>
+                    <tr>
+                      <td>Box</td>
+                      <td>{{result.box ? 'Yes' : 'No'}}</td>
+                    </tr>
+                    <tr>
+                      <td>Papers</td>
+                      <td>{{result.papers ? 'Yes' : 'No'}}</td>
+                    </tr>
+                  </table>
+                  <button routerLink="/{{result.product.brand.name.toLowerCase()}}/{{result.product.model.toLowerCase()}}/{{result.id}}" class="gold">Take a closer look</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #loading>
+  <div class="loading">
+    <img src="/assets/images/loading.gif" alt="Loading" />
+  </div>
+</ng-template>

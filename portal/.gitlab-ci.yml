@@ -1,0 +1,50 @@
+image: rjcoupe/aws-node-builder:wmuk
+
+stages:
+  - lint
+  - deploy
+
+Lint:
+  stage: lint
+  script:
+    - npm install
+    - npm run lint
+  except:
+    - system-tests
+  
+#Unit Tests:
+#  stage: test
+#  script:
+#    - npm install
+#    - npm run test:unit
+
+# Smoke Tests:
+#   stage: test
+#   script:
+#     - npm install
+#     - nohup node server.js &
+#     - npm run test:smoke
+#   after_script:
+#     - killall node
+
+# System Tests:
+#   image: ubuntu
+#   stage: test
+#   script:
+#     - npm install
+#     - nohup node server.js &
+#     - sleep 5
+#     - npm run test:system
+#   after_script:
+#     - killall node
+
+Deploy To Staging:
+  image: rjcoupe/aws-node-builder:wmuk
+  stage: deploy
+  environment:
+    name: Staging
+    url: http://wmuk-staging.eu-west-1.elasticbeanstalk.com/
+  only:
+    - tags
+  script:
+    - sh ./deployment/deploy.sh staging

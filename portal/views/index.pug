@@ -1,0 +1,28 @@
+doctype html
+html
+    head
+        script(src="//code.jquery.com/jquery-2.1.4.min.js")
+        script(src="/script-min.js")
+        script(src="//use.fontawesome.com/releases/v5.0.6/js/all.js")
+        script(src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js")
+        link(type="text/css" rel="stylesheet" href="/fonts.css")
+        link(type="text/css" rel="stylesheet" href="/style.css")
+        link(type="text/css" rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css")
+        //- link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+
+        link(type="image/x-icon" rel="shortcut icon" href="/images/favicon.png")
+        meta(charset="utf-8")
+        meta(http-equiv="x-ua-compatible" content="ie-edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        block title
+            title Watch Merchant UK | Luxury Watches For Private &amp; Trade Sellers
+        block description
+            meta(name="description" contentc="Luxury Watches For Private &amp; Trade Sellers")
+        block scripts
+            if googleAnalytics
+                include includes/google-analytics
+    body
+        .ctn
+            include includes/header.pug
+            block content
+            include includes/footer.pug

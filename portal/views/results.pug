@@ -1,0 +1,17 @@
+extends index
+
+block title
+    title Search Results | Watch Merchant UK
+
+block content
+    section.search-results
+        .header-bumper
+        .search-results-container.row
+            each advert in adverts
+                .result-container.col-xs-1.col-md-3
+                    a(href=`/advert/${advert.product.brand.slug}/${advert.product.slug}/${advert.id}`)
+                        if advert.images.length
+                            img(src=advert.images[0].url alt=`${advert.product.brand.name} ${advert.product.model}`)
+                        h3= `${advert.product.brand.name} ${advert.product.model}`
+                        h4 &pound;#{(advert.price / 100).toLocaleString()}
+                        h5= advert.seller.sellerName

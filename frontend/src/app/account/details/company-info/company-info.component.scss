@@ -1,0 +1,32 @@
+$gold: rgb(164, 137, 64);
+
+.form-container {
+    text-align: center;
+    input[type=checkbox] {
+        margin-left: 30px;
+    }
+}
+
+.company-summary {
+    width: 100%;
+    min-height: 400px;
+    border: 2px solid #000;
+    font-size: 18px;
+}
+
+.finance-label {
+    float: left;
+}
+
+.finance {
+    float: left;
+    margin-top: 6px;
+/*
+    appearance: none;
+    --webkit-appearance: none;
+    --moz-appearance: none;
+*/
+    border: 2px solid $gold;
+    width: 18px;
+    height: 18px;
+}

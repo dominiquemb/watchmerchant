@@ -1,0 +1,15 @@
+$gold: hsl(43, 44, 45);
+$dark-grey: #090a0b;
+$quartz: rgb(235,235,235);
+
+.gold-text {
+    color: $gold !important;
+}
+
+.white-text {
+    color: $quartz !important;
+}
+
+.bold-text {
+    font-weight: bold;
+}

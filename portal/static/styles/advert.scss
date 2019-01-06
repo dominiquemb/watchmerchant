@@ -1,0 +1,49 @@
+@import '_global';
+
+.listing-detail {
+    .image-container {
+        background-color: $dark-grey;
+        .slider {
+            background-color: $dark-grey;
+            height: 280px;
+            width: 80%;
+            margin: 0 auto;
+
+            img {
+                height: 280px;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .strapline-container {
+        display: flex;
+
+        div {
+            border: 1px solid #999;
+            border-top: 0;
+            &:first-of-type {
+                border-left: 0;
+            }
+            &:last-of-type {
+                border-left: 0;
+                border-right: 0;
+                flex: 1;
+            }
+
+            h4 {
+                margin: 10px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .seller-container {
+        text-align: center;
+        border-bottom: 1px solid #999;
+    }
+
+    .description-container {
+        margin: 15px;
+    }
+}

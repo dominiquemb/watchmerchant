@@ -1,0 +1,10 @@
+section(class="new-arrivals")
+    each na in newArrivals
+        .new-arrival
+            - var link = `/advert/${na.product.brand.slug}/${na.product.model}/${na.id}`
+            a(href=link)
+                .new-arrival-content-container               
+                    .new-arrival-image-container
+                        if na.images.length
+                            img(src=na.images[0].url)
+                    .new-arrival-strapline.embolden-first-word= `${na.product.brand.name} ${na.product.model}`

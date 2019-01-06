@@ -1,0 +1,314 @@
+@import '../../styles.scss';
+// $logoHeight: 125px;
+$dark-grey: #090a0b;
+.about {
+  position: relative;
+  padding: 0;
+  .col-12 {
+    padding: 0;
+  }
+  hr {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 50%;
+  }
+  .landing-page {
+    height: calc(100vh - 125px);
+    background-image: url('/assets/images/shutterstock_268450493.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include respond-to($mobile) {
+      background-position-x: -130px;
+    }
+    .col-12 {
+      >div:not(.overlay) {
+        z-index: 10;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        height: 100%;
+        h4 {
+          width: 100%;
+          text-align: center;
+          @include respond-to($desktop) {
+            margin: 20px 20%;
+            text-align: left;
+          }
+          font-weight: 500;
+          font-size: 3rem;
+        }
+        h4:first-of-type {
+          color: $gold;
+        }
+        h4:nth-of-type(2) {
+          color: $quartz;
+        }
+      }
+    }
+  }
+  .about-container {
+    &.our {
+      background-color: $quartz;
+      article {
+        margin: 0 auto;
+        width: 75%;
+      }
+      h2 {
+        &:first-of-type {
+          margin-top: 25px;
+        }
+      }
+    }
+    &.let-us-help {
+      padding: 50px;
+      background-color: $dark-grey;
+      h3 {
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        width: 100%;
+        font-size: 3rem;
+        font-weight: 500;
+      }
+      h2 {
+        font-size: 2.25rem;
+      }
+      color: $quartz;
+      article {
+        padding-bottom: 20px;
+        >div {
+          display: flex;
+          flex-wrap: wrap;
+          >div {
+            @include respond-to($desktop) {
+              width: calc(50% - 80px);
+              padding: 0 40px;
+            }
+            text-align: center;
+          }
+        }
+      }
+    }
+    &.contact-us {
+      h2 {
+        margin-top: auto;
+      }
+    }
+    &.white {
+      background-color: $quartz;
+    }
+    &.why-us {
+      padding: 50px 0;
+      @include respond-to($desktop) {
+        padding: 150px 0;
+      }
+      background-image: url('/assets/images/shutterstock_733013302.jpg');
+      background-size: cover;
+      background-position: bottom center;
+      position: relative;
+      text-align: left;
+      .overlay {
+        background-color: rgba(0, 0, 0, 0.25);
+      }
+      article {
+        z-index: 10;
+        padding: 10px;
+        text-align: center;
+        @include respond-to($desktop) {
+          text-align: left;
+          width: 40%;
+          padding: 50px 100px;
+        }
+        h2 {
+          @include respond-to($desktop) {
+            text-align: left;
+          }
+          margin: 0;
+          margin-left: 10px;
+        }
+        p {
+          @include respond-to($desktop) {
+            text-align: left;
+          }
+          color: $quartz;
+          margin: 20px 10px;
+        }
+      }
+    }
+    article {
+      position: relative;
+      h2 {
+        font-weight: 500;
+        color: $gold;
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 10px;
+      }
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.about-old {
+  background-image: url('/images/watch-presentation.jpg');
+  background-color: $dark-grey;
+  background-repeat: repeat-y;
+  background-position-y: -30px; // Because, unbelievably, a light manages to white-out the text if it's left to its own devices
+  min-width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  .about-container {
+    &.white {
+      background-color: $quartz;
+      width: 100%;
+    }
+    width: 90%;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 10;
+    article {
+      display: flex;
+      width: 100%;
+      opacity: 0.8;
+      &.vertical-split {
+        display: flex;
+        flex-wrap: wrap;
+        height: auto;
+        h2 {
+          margin: 25px 0;
+        }
+      }
+      margin: 20px;
+      flex-wrap: wrap; // min-height: calc(100vh - 300px);
+      ul {
+        list-style-type: none;
+        width: 75%;
+        margin: 0 auto;
+        li {
+          text-indent: -5px;
+          &:before {
+            content: '- ';
+            text-indent: -5px;
+          }
+        }
+      }
+      .white,
+      .black {
+        @include respond-to($desktop) {
+          // height: calc(100% - 50px);
+        }
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+      .full-width {
+        padding: 10px;
+        width: 100%;
+      }
+      .white {
+        background-color: $quartz;
+        color: $dark-grey;
+      }
+      .black {
+        background-color: $dark-grey;
+        color: $quartz;
+        background-image: url('/images/logo-big.jpg');
+      }
+      .split {
+        padding: 25px;
+        position: relative;
+        flex-wrap: wrap;
+        .two-column {
+          @include respond-to($desktop) {
+            width: calc(45% - 52px);
+            height: 100%;
+          }
+          align-items: flex-start;
+          margin: 25px;
+          h4 {
+            text-align: center;
+            width: 100%;
+          }
+        }
+        &.no-text {
+          background-size: cover;
+          @include respond-to($mobile) {
+            display: none;
+          }
+        }
+        &.vertical {
+          width: 100%;
+          padding: 0;
+          height: auto;
+          h2 {
+            padding: 20px 0px;
+            background-size: cover;
+            width: 100%;
+          }
+          h3 {
+            padding: 20px 0px;
+          }
+        }
+        &.horizontal {
+          &.forty {
+            @include respond-to($desktop) {
+              width: calc(40% - 50px);
+            }
+          }
+          &.fifty {
+            @include respond-to($desktop) {
+              width: calc(50% - 50px);
+            }
+          }
+          &.sixty {
+            @include respond-to($desktop) {
+              width: calc(60% - 50px);
+            }
+          }
+        }
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+        }
+      }
+      >div {
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        width: 100%;
+        h2 {
+          width: 100%;
+          color: $gold;
+          text-align: center;
+          margin: 0;
+          font-weight: 500;
+          &.greyscale {
+            background-image: url('/images/watch-gold-black.jpg');
+          }
+        }
+        h3 {
+          color: $gold;
+          margin: 0;
+          width: 100%;
+          text-align: center;
+        }
+        p {
+          font-weight: 200;
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

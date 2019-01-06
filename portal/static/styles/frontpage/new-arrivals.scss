@@ -1,0 +1,49 @@
+@import '../global';
+
+.new-arrivals {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #000;
+    width: 100%;
+    .new-arrival {
+        width: 100%;
+        
+        text-align: center;
+        border-bottom: 1px solid $quartz;
+        @include respond-to($desktop) {
+            width: calc(100% / 6 - 1px);
+            border-bottom: 0;
+            border-right: 1px solid $quartz;
+            &:last-of-type {
+                border-right: 0;
+            }
+        }
+        &:first-of-type {
+            
+        }
+        &:last-of-type {
+            border-bottom: none;
+        }
+        a {
+            color: $gold;
+            text-decoration: none;
+
+            .new-arrival-image-container {
+                width: 100%;
+                min-height: 200px;
+            }
+
+            .new-arrival-content-container {
+                padding: 10px 30px;               
+                
+                img {
+                    max-width: 100%;
+                }
+            }
+
+            @include respond-to($mobile) {
+                overflow-x: hidden;
+            }
+        }
+    }
+}

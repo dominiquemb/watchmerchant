@@ -1,0 +1,17 @@
+extends ../index
+
+block content
+    table.table
+        thead
+            tr
+                th First Name
+                th Surname
+                th E-Mail Address
+                th Signup Date
+            tbody
+                each user in users
+                    tr
+                        td= user.firstName
+                        td= user.surname
+                        td= user.email
+                        td= user.createdAt

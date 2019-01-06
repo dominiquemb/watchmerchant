@@ -1,0 +1,20 @@
+<a class="back-to" routerLink="/account/details">Back to Account</a>
+
+<div class="container company-info">
+  <h1 class="align-center">Company Information</h1>
+  <div class="form-container">
+    <div class="form-group">
+	    <p>
+		    <label for="company-summary">Write a summary of your company for the buyers to see</label>
+	    </p>
+	    <textarea [(ngModel)]="companySummary" name="companySummary" id="company-summary" class="company-summary"></textarea>
+    </div>
+    <div class="form-group">
+	    <label class="finance-label" for="finance">Do you offer your customers finance?</label> 
+	    <input type="checkbox" [(ngModel)]="finance" name="finance" id="finance" class="finance" />
+    </div>
+    <div class="form-group">
+	    <button class="gold" (click)="update()">Confirm</button>
+    </div>
+  </div>
+</div>

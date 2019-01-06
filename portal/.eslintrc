@@ -1,0 +1,11 @@
+{
+    "extends": "google",
+    "parserOptions": {
+        "ecmaVersion": 8
+    },
+    "rules": {
+        "require-jsdoc": "off",
+        "max-len": "off",
+        "object-curly-spacing": ["error", "always"]
+    }
+}

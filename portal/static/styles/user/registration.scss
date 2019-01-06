@@ -1,0 +1,63 @@
+@import '../mixins';
+@import '../palette';
+
+.user-registration {
+    background-image: url("http://www.watchmerchantuk.com/wp-content/uploads/2017/08/middle-image.jpg");
+    h2 {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        font-family: "Martel", serif;
+        color: $gold;
+    }
+    position: relative;
+    height: calc(100vh - 73px - 135px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+    div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        width: 60%;
+
+        form {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        table {
+            width: 100%;
+
+            tr:not(:last-child) {
+                td:first-child {
+                    border-right: 1px solid #999;
+                    text-align: right;
+                }
+
+                td {
+                    color: #FFF;
+                }
+            }
+
+            tr:last-child {
+                td {
+                    text-align: center;
+                }
+            }
+
+            td {
+                padding: 10px;
+                font-family: "Lato", sans-serif;
+            }
+
+            input[type=text], input[type=password] {
+                padding: 5px;
+                width: 70%;
+            }
+        }
+    }
+}

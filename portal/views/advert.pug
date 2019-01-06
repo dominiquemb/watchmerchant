@@ -1,0 +1,22 @@
+extends index
+
+block title
+    title= `${title} | Watch Merchant UK`
+
+block content
+    section.listing-detail
+        .header-bumper
+        .image-container
+            .slider
+                each image in advertData.images
+                    div
+                        img(src=image alt=title title=title)
+        .strapline-container
+            .price-container
+                h4 &pound;#{(advertData.price / 100).toLocaleString()}
+            .make-and-model-container
+                h4 #{title}#{productData.manufacturerRef ? ' ' + productData.manufacturerRef : ''}
+        .seller-container
+            h3= sellerData.sellerName
+        .description-container
+            span= advertData.description

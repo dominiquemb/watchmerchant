@@ -1,0 +1,19 @@
+.form-container {
+	text-align: center;
+
+	ul {
+		width: 315px;
+		margin: auto;
+		text-align: left;
+		margin-bottom: 30px;
+
+		li {
+			padding-left: 12px;
+		}
+	}
+
+	button.gold {
+		cursor: pointer;
+		width: 208px;
+	}
+}

@@ -1,0 +1,10 @@
+section.reasons
+    h2.embolden-first-word Thousands of watches online
+    h3 Simple, Easy &amp; Quick!
+    each reason in reasons
+        .reason
+            .img-container
+                img(src=reason.imageUrl alt=reason.header)
+            h3.bold-text= reason.header
+            p= reason.text
+            hr

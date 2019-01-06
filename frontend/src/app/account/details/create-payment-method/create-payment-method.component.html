@@ -1,0 +1,17 @@
+<a class="back-to" routerLink="/account/details">Back to Account Details</a>
+
+<h1 class="align-center">Your Payment</h1>
+
+<div class="form-container">
+  <div class="powered-by-stripe">
+	<a href="http://stripe.com/" class="float-right" target="_blank"><img src="/assets/images/powered_by_stripe.png" /></a>
+  </div>
+  <form novalidate (ngSubmit)="createCard()">
+    <div class="form-group">
+	    <label for="cardOwnerName">Name on card</label>
+	    <input id="cardOwnerName" type="text" name="cardOwnerName" [(ngModel)]="cardOwnerName" />
+    </div>
+    <div id="card-element" class="field"></div>
+    <button class="gold">Confirm</button>
+  </form>
+</div>

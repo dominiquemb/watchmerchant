@@ -1,0 +1,22 @@
+extends ../index
+
+block title
+    title Dashboard | Watch Merchant UK
+
+block content
+    section.user-dashboard
+        .header-bumper
+        if user.admin
+            h2 Administrator Functions
+            .dashboard-segment
+                a(href="/admin") Admin Panel
+            .dashboard-segment
+                h4 Upload Advert File for Seller
+                form(method="post" action="/import/create" encType="multipart/form-data")
+                    select(name="sellerId")
+                        optgroup(label="Select a Seller")
+                            each seller in sellers
+                                option(value=seller.id)= seller.sellerName
+                    input(type="file" name="advertImport" accept=".csv")
+                    button(value="Upload") Upload
+                

@@ -1,0 +1,40 @@
+@import 'global';
+
+html, body {
+    margin: 0;
+}
+
+body {
+    position: relative;
+    font-family: $body;
+}
+
+.ctn {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+
+    section:first-of-type, section.first {
+        // @include respond-to($desktop) {
+        //     padding-top: calc(#{$logoHeight});
+        // }
+        // @include respond-to($mobile) {
+        //     padding-top: calc(#{$logoHeight});
+        // }
+    }
+
+    h2 {
+        font-size: 26.6px;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.65);
+        z-index: 5;
+    }
+};

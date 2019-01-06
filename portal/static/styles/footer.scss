@@ -1,0 +1,57 @@
+@import 'global';
+
+footer {
+    background-color: $dark-grey;
+    padding: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+        color: #999;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .social-buttons {
+        display: flex;
+        width: 100%;
+        color: #999;
+        justify-content: center;
+        text-align: center;
+
+        .social-button {
+            padding: 25px;
+
+            a {
+                color: inherit;
+            }
+        }
+    }
+
+    .copyright {
+        width: 100%;
+        p {
+            text-align: center;
+            color: #999;
+            font-size: 11px;
+            font-family: $body;
+            font-weight: 400;
+        }
+    }
+
+    .powered-by-stripe {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .img-container {
+            background-color: #FFF;
+            border-radius: 25px;
+            img {
+                height: 30px;
+                display: block;
+            }
+        }
+    }
+}

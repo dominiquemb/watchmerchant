@@ -1,0 +1,13 @@
+<div *ngIf="flashMessage" class="flash-container">
+  <div class="alert {{flashMessage.type}}" role="alert">
+    <p>{{flashMessage.message}}</p>
+    <span (click)="removeFlash()">
+      <i class="fa fa-times"></i>
+    </span>
+  </div>
+</div>
+<header-bar [isFrontPage]="isFrontPage" [showSellMyWatch]="!isSellMyWatch"></header-bar>
+<main [class.container]="!isFullWidth" [class.frontpage]="isFrontPage" [class.about]="isAbout" [class.services]="isServices" [class.sellMyWatch]="isSellMyWatch">
+  <router-outlet></router-outlet>
+</main>
+<footer-bar></footer-bar>

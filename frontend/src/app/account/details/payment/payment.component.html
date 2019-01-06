@@ -1,0 +1,50 @@
+<a class="back-to" routerLink="/account/details">Back to Account Details</a>
+
+<h1 class="align-center">Payment</h1>
+
+<div *ngIf="dataLoaded && paymentMethods; else loading">
+  <div class="row form-container" *ngFor="let card of paymentMethods">
+	    <div class="col-12">
+		<a href="http://stripe.com/" class="float-right" target="_blank"><img src="/assets/images/powered_by_stripe.png" /></a>
+		<div class="clearfix"></div>
+	    </div>
+	    <div class="col-2"><img [src]="getCardImage(card.brand)" /></div>
+	    <div class="col-10">
+	      <p>{{card.brand}} ({{card.last4}})</p>
+	      <p>Exp: {{card.exp_month}}/{{card.exp_year}}</p>
+	      <p>{{card.name}}</p>
+	      <p *ngIf="card.isDefault">
+		<em>This is your default payment method</em>
+	      </p>
+	      <div class="button-container">
+		<button>Delete</button>
+		<button *ngIf="!card.isDefault">Set Default</button>
+	      </div>
+	    </div>
+  </div>
+</div>
+
+
+<div class="form-container">
+  <div class="row">
+    <button class="gold" (click)="loadPaymentMethodCreation()">
+      Create Payment Method
+    </button>
+  </div>
+
+  <div class="powered-by-stripe">
+	<div class="credit-card-logos float-left">
+		<div class="credit-card-logos-image-wrapper">
+		       <img src="/assets/images/credit-card-logos.png" />
+		</div>
+	</div>
+	<a href="http://stripe.com/" class="float-right" target="_blank"><img src="/assets/images/powered_by_stripe.png" /></a>
+	<div class="clearfix"></div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading">
+    <img src="/assets/images/loading.gif" alt="Loading" />
+  </div>
+</ng-template>

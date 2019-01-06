@@ -1,0 +1,106 @@
+@import '../global';
+
+.quotes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    @include respond-to($mobile) {
+        overflow-x: hidden;
+    }
+
+    >div:first-child {
+        width: 100%;
+        min-height: calc(40vh);
+        @include respond-to($desktop) {
+            min-height: 70vh;
+        }
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        
+        .quote-container {
+            margin: 0 auto;
+            z-index: 10;
+            h2 {
+                color: rgba(255, 255, 255, 0.63);
+                font-family: $body;
+                text-align: center;
+                width: 100%;
+                strong {
+                    color: $quartz;
+                }
+                font-style: italic;
+    
+                &:last-of-type {
+                    color: $gold;
+                    font-weight: bold;
+                    @include respond-to($desktop) {
+                        text-align: right;
+                    }
+                    font-style: normal;
+                }
+            }
+        }
+        
+        
+    }
+
+    div.white-segment {
+        padding: 150px;
+        h2 {
+            color: hsla(0, 0, 0, 0.63);
+            strong {
+                color: #000;
+            }
+        }
+        h4 {
+            @include respond-to($desktop) {
+                width: 800px;
+            }
+            padding: 0px 150px;
+            letter-spacing: 0.16em;
+            font-family: $header;
+            font-weight: 200;
+            font-size: 24px;
+            text-align: center;
+        }
+        p {
+            text-align: center;
+            font-family: $body;
+            color: #999;
+            font-weight: 400;
+        }
+        hr {
+            height: 0px;
+            border-top: 1px solid #e5e5e5;
+            width: 58%;
+        }
+    }
+
+    h2 {
+        padding: 0;
+        font-size: 14px;
+        @include respond-to($desktop) {
+            width: 800px;
+            // padding: 0 150px;
+            font-size: 26.6px;
+        }
+        
+        color: rgba(255, 255, 255, 0.63);
+        font-family: $header;
+        text-align: center;
+        letter-spacing: 4.2px;
+        font-weight: 200;
+    }
+}
+

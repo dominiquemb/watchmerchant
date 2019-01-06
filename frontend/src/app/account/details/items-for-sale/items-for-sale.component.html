@@ -1,0 +1,13 @@
+<a class="back-to" routerLink="/account/details">Back to Account</a>
+
+<div class="container items-for-sale">
+  <h1 class="align-center">Items for sale</h1>
+	<div class="form-container">
+	  <div *ngIf="inventoryFlag == false">
+		  <p>There are no items for sale yet, do you want to create an advert?</p>
+		    <button class="gold" (click)="loadAdvertCreation()">
+			Create Advert
+		    </button>
+	  </div>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+.flash-container {
+    position: fixed;
+    z-index: 10000000;
+    margin-top: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .alert {
+        position: relative;
+        p {
+            margin: 0;
+        }
+        span {
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            cursor: pointer;
+        }
+    }
+}

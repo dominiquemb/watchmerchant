@@ -1,0 +1,15 @@
+@import 'global';
+
+.countdown {
+    width: 100%;
+    text-align: left;
+    color: $gold;
+    text-align: center;
+    @include respond-to($desktop) {
+        text-align: left;
+        font-size: 1.5rem;
+    }
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 105;
+}

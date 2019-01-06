@@ -1,0 +1,100 @@
+@import '../../../styles.scss';
+
+h1 {
+    margin: 50px 0;
+}
+
+.gold {
+    color: $gold;
+}
+
+form {
+    width: 100%;
+
+    .col-12 {
+        .row {
+            margin-bottom: 15px;
+        }
+    }
+
+    .col-3, .col-4 {
+        font-size: 1.2rem;
+    }
+
+    .col-9 {
+        text-align: left;
+
+        input, select {
+            height: 75%;
+            margin: 7px 0;
+        }
+    }
+
+    .col-12.search-button {
+        text-align: center;
+    }
+
+    button {
+        width: auto;
+        padding: 10px 30px;
+    }
+
+    input, select {
+        width: 100%;
+    }
+
+    .search-button {
+        &.col-8 {
+            button {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            text-align: center;
+        }
+        &.col-12 {
+            text-align: center;
+            button {
+                width: 60%;
+            }
+        }
+        a {
+            color: $gold;
+        }
+    }
+}
+
+.search-results {
+    .results-filter {
+        width: 25vh;
+        margin-bottom: 1vh;
+    }
+    .search-result-container {
+        margin-top: 15px;
+        .search-result {
+            border: 1px solid $gold;
+            padding: 15px;
+            height: 100%;
+            >div:first-of-type {
+                img {
+                    max-width: 100%;
+                }
+                p {
+                    margin-top: 7px;
+                    text-align: center;
+                }
+            }
+            
+            h3 {
+                cursor: pointer;
+            }
+            table {
+                width: 100%;
+                tr {
+                    td {
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+}

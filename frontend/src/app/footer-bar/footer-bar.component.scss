@@ -1,0 +1,84 @@
+@import '../../styles.scss';
+
+footer {
+    background-image: url('/assets/images/wm_gradient_cropped.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    // background-position-x: 857px;
+    background-position-y: 294px;
+    a {
+        color: black;
+        &.email-link {
+            color: blue;
+        }
+    }
+    > div:nth-of-type(1), > div:nth-of-type(2) { // Any questions?
+        margin: 50px auto;
+        background-color: $quartz;
+        color: $black;
+    }
+
+    .newsletter-sub-container { // Newsletter subscription
+        background-color: $black;
+        color: $quartz;
+        padding: 50px;
+        font-size: 1.5rem;
+        input {
+            border: 2px solid $gold;
+            padding: 10px 30px;
+            height: 38px;
+            font-size: 1rem;
+            @include respond-to($desktop) {
+                margin-left: 30px;
+                width: 300px;
+            }
+        }
+
+        button {
+            border: 0;
+            color: $quartz;
+            background-color: $gold;
+            height: 40px;
+            padding: 0 20px;
+            margin-top: 10px;
+            font-size: 1rem;
+            @include respond-to($desktop) {
+                margin-top: -1px;
+                height: 38px;
+            }
+        }
+    }
+
+    > div:nth-of-type(4) { // Last bit?
+        min-height: 40vh;
+        padding-left: 10%;
+        margin-top: 50px;
+
+        .row {
+            margin-bottom: 5vh;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            .gold-text {
+                font-size: 1.3rem;
+            }
+
+            .small-text {
+                font-size: 90%;
+            }
+        }
+    }
+}
+
+.let-watchmerchantuk-help {
+    font-size: 30px;
+    background-color: $black;
+    color: $quartz;
+    padding: 50px;
+    font-size: 1.5rem;
+}
+
+.gold-text {
+    color: $gold;
+}

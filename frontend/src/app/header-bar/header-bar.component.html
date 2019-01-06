@@ -1,0 +1,102 @@
+<header class="container-fluid">
+  <div class="row">
+    <div class="d-block d-sm-block d-md-block col-md-4 links-and-search">
+      <div class="links row">
+        <a class="d-none d-md-inline-block" (mouseover)="triggerBrandsPopup()" (mouseout)="hideBrandsPopup()">Brands</a>
+        <a class="d-inline-block d-md-none">Brands</a>
+        <a *ngFor="let link of links" routerLink={{link.url}}>{{ link.text }}</a>
+	    <div class="d-inline-block d-md-none login-signup">
+	      <div class="gold-text" *ngIf="!loggedIn">
+		<a routerLink="/login">Login</a>
+		<a routerLink="/signup">Sign Up</a>
+	      </div>
+	      <div class="gold-text" *ngIf="loggedIn">
+		<a routerLink="/account">My Account</a>
+		<a href="#" (click)="logout()">Logout</a>
+	      </div>
+	    </div>
+      </div>
+      <div class="search d-block d-md-none mobile-search">
+        <div class="col">
+          <form #headerSearch="ngForm" (ngSubmit)="doSearch()">
+            <input type="text" name="search" [(ngModel)]="searchString" placeholder="Search" required />
+            <button type="submit" style="display: none;"></button>
+          </form>
+        </div>
+      </div>
+      <div class="search row d-none d-md-block">
+        <div class="col">
+          <form #headerSearch="ngForm" (ngSubmit)="doSearch()">
+            <input type="text" name="search" [(ngModel)]="searchString" placeholder="Search" required />
+            <button type="submit" style="display: none;"></button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 logo-container align-center">
+      <a routerLink="/">
+        <img src="/assets/images/WM_Main_Aurum_Trans.png" alt="Watch Merchant UK" />
+      </a>
+    </div>
+    <div class="d-none d-md-flex col-md-4 login-signup align-right">
+      <div class="gold-text" *ngIf="!loggedIn">
+        <a routerLink="/login">Login</a>
+        <a routerLink="/signup">Sign Up</a>
+      </div>
+      <div class="gold-text" *ngIf="loggedIn">
+        <a routerLink="/account">My Account</a>
+        <a href="#" (click)="logout()">Logout</a>
+      </div>
+      <div class="sell-my-watch" [class.invisible]="!showSellMyWatch">
+        <button routerLink="/sell-my-watch"><strong>Sell</strong> my watch</button>
+      </div>
+    </div>
+  </div>
+  <div class="hamburger d-sm-none">
+    <button (click)="showMobileNav()"><i class="fa fa-bars"></i></button>
+  </div>
+  <div class="mobile-nav" [class.show]="mobileNavDisplayed">
+    Mobile Nav!
+  </div>
+</header>
+
+<section class="brands-popup" [class.displayed]="showBrandsPopup" (mouseover)="triggerBrandsPopup()" (mouseout)="hideBrandsPopup()">
+  <div class="row">
+	<div class="col-6 padded-column">
+		<div class="row">
+			<!--
+			    <div class="col-6" *ngFor="let brand of brands">
+			      <a (click)="showBrandsPopup = false" routerLink="/search/brand/{{brand.name}}">{{brand.name}}</a>
+			    </div>
+			-->
+			   <div class="col-12">
+				<p class="most-commonly-searched-brands">
+					<strong>Most commonly searched brands</strong>
+				</p>
+			   </div>
+		</div>
+		<div class="row">
+			   <div class="col-6" *ngFor="let brandColumn of brandColumns">
+				<div *ngFor="let brand of brandColumn" class="brand-link-container">
+					<a class="brand-link" (click)="showBrandsPopup = false" routerLink="/search/brand/{{brand.name}}">
+						{{brand.name}}
+					</a>
+				</div>
+			   </div>
+		   </div>
+	</div>
+	   <div class="col-6 padded-column">
+		<div class="col-12 brands-popup-images">
+			<img class="model-wearing-watch" src="/assets/images/woman_wearing_watch.jpg" />   
+		</div>
+		    <div class="col-12 align-center get-in-touch">
+		      <p>Get in touch to find out how you can <a routerLink="help">work with us</a>.</p>
+			<a routerLink="help"><button class="gold">Find out more</button></a>
+		    </div>
+
+	   </div>
+  </div>
+  <div class="bottom-border row">
+	<div class="bottom-border-inner"></div>
+  </div>
+</section>

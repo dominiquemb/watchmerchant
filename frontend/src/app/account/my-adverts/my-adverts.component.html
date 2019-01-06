@@ -1,0 +1,27 @@
+<h1 class="align-center">My Adverts</h1>
+<div class="form-container">
+  <div class="csv-upload row" *ngIf="user.tradeSeller">
+    <div class="col-8">
+      <p>Upload an advert manifest (CSV)</p>
+    </div>
+    <div class="col-4">
+      <button class="gold" (click)="fileInput.click()">Upload</button>
+      <input type="file" (change)="handleFileUpload($event.target.files)" name="csvImport" style="display: none" #fileInput />
+    </div>
+  </div>
+</div>
+
+<div class="form-container existing-listings" *ngIf="ownListings.length">
+  <div class="row" *ngFor="let l of ownListings">
+    <div class="col-3">
+      <img src="{{l.images[0].url}}" />
+    </div>
+    <div class="col-6">
+      <p><strong>{{l.product.brand.name}} {{l.product.model}}</strong></p>
+      <p>£{{(l.price / 100).toLocaleString()}}</p>
+    </div>
+    <div class="col-3">
+      <button class="gold" (click)="markAsSold(l.id)">Sold</button>
+    </div>
+  </div>
+</div>

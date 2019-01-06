@@ -1,0 +1,9 @@
+extends index
+
+block content
+    include includes/frontpage/slider.pug
+    if newArrivals.length
+        include includes/frontpage/quote.pug
+    include includes/frontpage/reasons.pug
+    include includes/frontpage/second-quote.pug
+    include includes/frontpage/new-arrivals.pug

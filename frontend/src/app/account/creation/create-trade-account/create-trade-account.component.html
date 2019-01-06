@@ -1,0 +1,22 @@
+<div *ngIf="!registrationComplete">
+  <h1 class="align-center">
+    Create Trade Account
+  </h1>
+  <div class="form-container">
+    <p class="align-center">Creating an account is easy. Just fill in the form below.</p>
+    <form #registrationForm="ngForm" (ngSubmit)="register()">
+      <input type="text" name="email" placeholder="E-Mail Address*" [(ngModel)]="email" required />
+      <input type="password" name="password" placeholder="Password*" [(ngModel)]="password" required />
+      <input type="password" name="password-confirmation" placeholder="Confirm Password*" [(ngModel)]="passwordConfirmation" required />
+      <input type="text" name="company-name" placeholder="Company Name*" [(ngModel)]="companyName" required />
+      <input type="text" name="company-reg" placeholder="Company Reg." [(ngModel)]="companyReg" />
+      <input type="text" name="postCode" placeholder="Post Code*" [(ngModel)]="postCode" required />
+      <button class="gold" [disabled]="!registrationForm.valid">Confirm</button>
+    </form>
+  </div>
+</div>
+<div *ngIf="registrationComplete" class="align-center">
+  <h1 class="align-center">Congratulations</h1>
+  <p class="align-center">Your account has been created!</p>
+  <a routerLink="/account" class="account-link">My Account</a>
+</div>

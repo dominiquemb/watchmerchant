@@ -1,0 +1,232 @@
+<div class="image-modal-container" *ngIf="modalImage" (click)="clearModalImage()">
+  <img [src]="modalImage" />
+</div>
+<div class="container-fluid breadcrumbs-container">
+  <div class="row">
+    <div class="col-12 breadcrumbs">
+      <a routerLink="/search">Search</a>
+      &gt;
+      <a routerLink="/search/brand/{{product.brand.name}}">{{product.brand.name}}</a>
+      &gt;
+      <a routerLink="/search/model/{{product.model}}">{{product.model}}</a>
+      &gt;
+      <a routerLink="/{{product.brand.name}}/{{product.model}}/{{advert.id}}">{{getSKU()}}</a>
+    </div>
+  </div>
+</div>
+<div class="container advert" *ngIf="advert && product">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class="main-image-container">
+        <img [src]="advert.images[0]" *ngIf="advert.images && advert.images.length" (click)="setModalImage(advert.images[0])" />
+        <img [src]="fallbackImageUrl" *ngIf="!advert.images || advert.images.length === 0" />
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="row title-row">
+        <div class="col-12 align-center">
+          <div class="title-container">
+            <h4>{{product.brand.name}} {{product.model}}</h4>
+            <h3 *ngIf="advert.price">&pound;{{(advert.price / 100).toLocaleString()}}</h3>
+            <a href="javascript:void(0)" routerLink="broker" *ngIf="!advert.price">
+              <h3>Broker Request Service</h3>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row quick-details-row">
+        <div class="col-12 quick-details">
+          <table>
+            <tr *ngIf="distanceToSeller !== undefined">
+              <td>Distance</td>
+              <td>{{distanceToSeller.toLocaleString()}} miles</td>
+            </tr>
+            <tr *ngIf="product.year">
+              <td>Year</td>
+              <td>{{product.year}}</td>
+            </tr>
+            <tr>
+              <td>Condition</td>
+              <td>{{product.isNew ? 'New' : 'Pre-Owned'}}</td>
+            </tr>
+            <tr>
+              <td>Box</td>
+              <td>{{product.box ? 'Yes' : 'No'}}</td>
+            </tr>
+            <tr>
+              <td>Papers</td>
+              <td>{{product.papers ? 'Yes' : 'No'}}</td>
+            </tr>
+          </table>
+          <button *ngIf="!displaySellerDetails" class="gold" (click)="showSellerDetails(sellerDetailsPlaceholder)">Show Seller</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row advert-images" *ngIf="advert.images && advert.images.length > 1">
+    <div class="col">
+      <div class="image-thumbnail-container" *ngFor="let thumbnail of advert.images.slice(1, advert.images.length)">
+        <img [src]="thumbnail" (click)="setModalImage(thumbnail)" />
+      </div>
+    </div>
+  </div>
+  <div class="row full-details-row">
+    <div class="col-12 sku">
+      <strong>{{getSKU()}}</strong>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="full-details">
+        <table>
+          <tr>
+            <th>Details</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>Make</td>
+            <td>{{product.brand.name}}</td>
+          </tr>
+          <tr>
+            <td>Model</td>
+            <td>{{product.model}}</td>
+          </tr>
+          <tr>
+            <td>Model Number</td>
+            <td>{{product.manufacturerRef}}</td>
+          </tr>
+          <tr>
+            <td>Year</td>
+            <td>{{product.year}}</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>&pound;{{(advert.price / 100).toLocaleString()}}</td>
+          </tr>
+          <tr>
+            <td>Condition</td>
+            <td>{{advert.isNew ? 'New' : 'Pre-Owned'}}</td>
+          </tr>
+          <tr>
+            <td>Case Material</td>
+            <td>{{product.caseMaterial}}</td>
+          </tr>
+          <tr>
+            <td>Case Diameter</td>
+            <td>{{product.caseDiameter}}mm</td>
+          </tr>
+          <tr>
+            <td>Dial Colour</td>
+            <td>{{product.dialColour}}</td>
+          </tr>
+          <tr>
+            <td>Strap Material</td>
+            <td>{{product.strap}}</td>
+          </tr>
+          <tr>
+            <td>Box</td>
+            <td>{{advert.box ? 'Yes' : 'No'}}</td>
+          </tr>
+          <tr>
+            <td>Papers</td>
+            <td>{{advert.papers ? 'Yes' : 'No'}}</td>
+          </tr>
+          <tr>
+            <td>Gemstones</td>
+            <td>{{advert.gemstones ? 'Yes' : 'No'}}</td>
+          </tr>
+          <tr>
+            <td>Movement</td>
+            <td>{{product.movement}}</td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td>{{product.gender}}</td>
+          </tr>
+          <tr>
+            <td>Rating</td>
+            <td>{{advert.condition}} / 10</td>
+          </tr>
+          <tr>
+            <td>Serviced</td>
+            <td>{{advert.serviced ? 'Yes' : 'No'}}</td>
+          </tr>
+          <tr>
+            <td>Warranty</td>
+            <td>{{advert.warranty}} months</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 description">
+      <strong>Description</strong>
+      <article>
+        {{advert.description}}
+      </article>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 show-seller">
+      <button *ngIf="!displaySellerDetails" class="gold" (click)="showSellerDetails(sellerDetailsPlaceholder)">Show Seller</button>
+    </div>
+  </div>
+  <div #sellerDetailsPlaceholder></div>
+  <div class="row seller-details" *ngIf="displaySellerDetails">
+    <div class="col-12 col-md-4">
+      <p class="align-center">More from this Seller</p>
+    </div>
+    <div class="col-12 col-md-4 address">
+      <p>{{seller.companyName}}</p>
+      <p>{{seller.addressLine1}}</p>
+      <p *ngIf="seller.addressLine2">{{seller.addressLine2}}</p>
+      <p *ngIf="seller.city">{{seller.city}}</p>
+      <p *ngIf="seller.county">{{seller.county}}</p>
+      <p *ngIf="seller.postCode">{{seller.postCode}}</p>
+      <p class="url">URL HERE</p>
+      <button class="gold" *ngIf="!displayContactDetails" (click)="displayContactDetails = true">
+        Contact Seller
+      </button>
+      <div *ngIf="displayContactDetails && advert.price" class="contact-details">
+        <p>
+          <a href="mailto:{{seller.email}}">{{seller.email}}</a>
+        </p>
+        <p *ngIf="seller.phoneNumber">
+          <a href="tel:{{seller.phoneNumber}}">{{seller.phoneNumber}}</a>
+        </p>
+      </div>
+      <div *ngIf="displayContactDetails && !advert.price" class="contact-details">
+        <p>Request a price from our
+          <a routerLink="/broker">Broker Service</a>!</p>
+      </div>
+      <div class="datepicker-container" *ngIf="displayContactDetails && seller.vipService">
+        <h4>Book an Appointment</h4>
+        <ngb-datepicker #vipDatePicker [(ngModel)]="vipDate"></ngb-datepicker>
+        <button class="gold" *ngIf="vipDate" (click)="requestAppointment()">
+          Request VIP Appointment
+        </button>
+      </div>
+      <p class="member-since">Member since: 1st July 2018</p>
+    </div>
+    <div class="col-12 col-md-4">
+      <h5>Seller Reviews</h5>
+      <p class="align-center">Coming soon!</p>
+    </div>
+  </div>
+  <div class="row faq">
+    <div class="col-12">
+      <h2 class="align-center">
+        FAQs
+      </h2>
+      <strong>I'd like to buy this item. How do I proceed?</strong>
+      <ol>
+        <li>On the offer page, click on the
+          <strong>Show Seller</strong> button. This will reveal the seller's details.</li>
+        <li>From there, click the
+          <strong>Contact Seller</strong> button. This will give you options - phone number, e-mail address or, if the seller has
+          our VIP Appointment Booking service, you can book an appointment online.</li>
+      </ol>
+      <strong>I would like to negotiate a price with the seller. What should I do?</strong>
+      <p>Contact the seller through the steps above and speak to them direct.</p>
+    </div>
+  </div>
+  
+
+</div>

@@ -1,0 +1,35 @@
+extends index
+
+block title
+    title Search | Watch Merchant UK
+
+block content
+    section.search
+        .header-bumper
+        h1 Search
+        form(action="/search/results" method="GET")
+            h3 Brand
+            input(type="text" name="brand")
+            h3 Model
+            input(type="text" name="model")
+            h3 Year
+            select(name="year")
+                option(value="") Any
+                each year in years
+                    option(value=year)= year
+            h3 Movement
+            select(name="movement")
+                option(value="") Any
+                each movement in ["Automatic", "Manual"]
+                    option(value=`${movement.toLowerCase()}`)= movement
+            h3 Gender
+            select(name="gender")
+                option(value="male") Mens
+                option(value="female") Ladies
+            h3 Price
+            input(type="text" name="priceMin")
+            span &nbsp; to &nbsp;
+            input(type="text" name="priceMax")
+            hr
+            button Search
+                

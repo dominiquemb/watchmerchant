@@ -1,0 +1,23 @@
+- var fields = {'email': 'E-Mail Address*', 'password': 'Password*', 'firstName': 'First Name*', 'surname': 'Surname*', 'phoneNumber': 'Phone Number '}
+
+div
+    h2 #[strong The dedicated marketplace] to buy or sell luxury watches
+    h4 
+        | Register interest for exclusive offers
+        br
+        | Launching April 2018
+    table
+        each label, field in fields
+            tr
+                td
+                    if field === "email"
+                        input(type="email" name=field placeholder=label)
+                    else if field === "password"
+                        input(type="password" name=field placeholder=label)
+                    else
+                        input(type="text" name=field placeholder=label)
+        tr
+            td
+                p * Required fields
+                button.newsletter-signup-submit.disabled(href="javascript:void(0);") #[strong Join] Us
+                button.our-services(href="/services") #[strong Our] Services

@@ -1,0 +1,48 @@
+@import '../../styles.scss';
+
+.sell-my-watch {
+    width: 100%;
+    height: calc(100vh - 160px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/images/sell-my-watch.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    
+    > div {
+        text-align: center;
+        z-index: 10;
+    }
+
+    h1 {
+        font-weight: 300;
+        color: $quartz;
+    }
+
+    p {
+        font-size: 1.3rem;
+        color: $quartz;
+        margin: 5px;
+        font-weight: 300;
+        &:first-of-type {
+            margin-top: 15px;
+        }
+    }
+
+    a {
+        color: $quartz;
+        text-decoration: underline;
+        font-weight: normal;
+    }
+
+    button {
+        width: auto;
+        margin: 25px;
+        padding: 20px 50px;
+        border: 1px solid $quartz;
+        font-weight: normal;
+        font-size: 2rem;
+    }
+}

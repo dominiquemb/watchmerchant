@@ -1,0 +1,170 @@
+@import '../global';
+
+.slider {
+    position: relative;
+    max-width: 100%;
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    ul {
+        li {
+            @include respond-to($desktop) {
+                height: 100vh;
+            }
+        }
+    }
+
+    &.static {
+        .overlay {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            z-index: 5;
+        }
+        min-height: 100vh;
+        background-image: url('/images/shutterstock_585751064.jpg');
+        background-size: cover;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        background-position-x: -471px;
+        @include respond-to($desktop) {
+            align-items: center;
+            background-position: bottom right;
+        }
+        
+
+
+        .newsletter-signup-container {
+            width: 100vw; 
+            @include respond-to($desktop) {
+                margin-top: 10vh;
+            }
+        }
+        .newsletter-signup {
+            position: relative;
+            z-index: 10;
+            padding: 50px 100px;
+            display: flex;
+            flex-wrap: wrap;
+            @include respond-to($mobile) {
+                height: 100%;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                padding: 0;
+                padding-top: 40px;
+
+                input {
+                    @include inputPlaceholder() {
+                        opacity: 1;
+                        color: $dark-grey;
+                    }
+                }
+            }
+            @include respond-to($desktop) {
+                width: 100vw;
+                justify-content: flex-start;
+            }
+            color: $quartz;
+            >div {
+                @include respond-to($mobile) {
+                    width: 100%;
+                    margin: 0 auto;
+                    text-align: center;
+
+                    table {
+                        width: 100%;
+                    }
+                }
+            }
+            h2, h4 {
+                @include respond-to($desktop) {
+                    margin: 0;
+                    padding: 20px 0;
+                }
+            }
+            h2 {
+                color: $gold;
+                font-weight: 500;
+                width: 90%;
+                margin: 0 auto;
+                font-size: 2.8rem;
+                @include respond-to($desktop) {
+                    font-size: 3rem;
+                    width: 60%;
+                    margin: 0;
+                }
+            }
+            h4 {
+                color: $quartz;
+                font-family: $body;
+                font-weight: bold;
+                font-weight: 500;
+                @include respond-to($desktop) {
+                    font-size: 2.25rem;
+                    text-align: left;
+                    padding: 20px 0;
+                }
+                width: 100%;
+                text-align: center;
+                margin: 5px 0;
+                letter-spacing: 0.1rem;
+                padding: 5px;
+            }
+            tr {
+                td {
+                    font-family: $body;
+                    padding-bottom: 10px;
+                    input {
+                        width: 200px;
+                        background-color: rgba(255, 255, 255, 0.5);
+                        border: 1px solid $gold;
+                        padding: 10px 30px;
+                        border-radius: 5px;
+                    }
+                    @include respond-to($mobile) {
+                        font-size: 70%;
+                    }
+                    &:last-of-type {
+                        @include respond-to($mobile) {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            button {
+                margin: 0 auto;
+                width: 200px;
+                background-color: $gold;
+                border: 1px solid $quartz;
+                color: $quartz;
+                margin-top: 15px;
+                padding: 15px 30px;
+                text-align: center;
+                font-size: 1.4rem;
+                border-radius: 5px;
+                cursor: pointer;
+                text-decoration: none;
+                &.disabled {
+                    background-color: $dark-grey;
+                    color: #999;
+                }
+                &:not(.newsletter-signup-submit) {
+                    width: 200px;
+                    @include respond-to($desktop) {
+                        margin-left: 15px;
+                        width: 200px;
+                    }
+                }
+            }
+        }
+    }
+}

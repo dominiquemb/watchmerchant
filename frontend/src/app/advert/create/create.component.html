@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+        <h1 align="center" *ngIf="activeForm == 'watchDetails'">Watch Details</h1>
+        <h1 align="center" *ngIf="activeForm == 'pictures'">Pictures</h1>
+        <h1 align="center" *ngIf="activeForm == 'preview'">Preview</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-8">
+        <form [formGroup]="advertCreationForm" (ngSubmit)="create()">
+          <table *ngIf="activeForm == 'watchDetails'">
+            <tr><td>Make</td><td><input type="text" formControlName="brand" /></td></tr>
+            <tr><td>Model</td><td><input type="text" formControlName="model" /></td></tr>
+            <tr><td>Model Number</td><td><input type="text" formControlName="manufacturerRef" /></td></tr>
+            <tr><td>Year</td><td><input type="number" formControlName="year" /></td></tr>
+            <tr><td>Price (&pound;)</td><td><input type="number" formControlName="price" /></td></tr>
+            <tr><td>New</td><td><input type="text" formControlName="isNew" /></td></tr>
+            <tr><td>Case Material</td><td><input type="text" formControlName="caseMaterial" /></td></tr>
+            <tr><td>Case Diameter (mm)</td><td><input type="number" formControlName="caseDiameter" /></td></tr>
+            <tr><td>Dial Colour</td><td><input type="text" formControlName="dialColour" /></td></tr>
+            <tr><td>Strap Material</td><td><input type="text" formControlName="strap" /></td></tr>
+            <tr><td>Box</td><td><input type="text" formControlName="box" /></td></tr>
+            <tr><td>Papers</td><td><input type="text" formControlName="papers" /></td></tr>
+            <tr><td>Gemstones</td><td><input type="text" formControlName="gemstones" /></td></tr>
+            <tr><td>Movement</td><td><input type="text" formControlName="movement" /></td></tr>
+            <tr><td>Gender</td><td><input type="text" formControlName="gender" /></td></tr>
+            <tr><td>Type</td><td><input type="text" formControlName="type" /></td></tr>
+            <tr><td>Condition</td><td><input type="number" formControlName="conditionRating" /></td></tr>
+            <tr><td>Serviced</td><td><input type="text" formControlName="serviced" /></td></tr>
+            <tr><td>Warranty (months)</td><td><input type="text" formControlName="warranty" /></td></tr>
+            <tr><td>Description</td><td><textarea formControlName="description"></textarea></td></tr>
+            <tr><td></td><td><button class="gold" (click)="showPicturesForm()">Next Step</button></td></tr>
+          </table>
+          <table *ngIf="activeForm == 'pictures'">
+            <tr><td>Picture #1</td><td><input type="file" formControlName="picture1" accept=".jpg,.jpeg,.png"/></td></tr>
+            <tr><td>Picture #2</td><td><input type="file" formControlName="picture2" accept=".jpg,.jpeg,.png"/></td></tr>
+            <tr><td>Picture #3</td><td><input type="file" formControlName="picture3" accept=".jpg,.jpeg,.png"/></td></tr>
+            <tr><td>Picture #4</td><td><input type="file" formControlName="picture4" accept=".jpg,.jpeg,.png"/></td></tr>
+            <tr><td>Picture #5</td><td><input type="file" formControlName="picture5" accept=".jpg,.jpeg,.png"/></td></tr>
+            <tr><td>Picture #6</td><td><input type="file" formControlName="picture6" accept=".jpg,.jpeg,.png"/></td></tr>
+            <tr><td>Picture #7</td><td><input type="file" formControlName="picture7" accept=".jpg,.jpeg,.png"/></td></tr>
+            <tr><td>Picture #8</td><td><input type="file" formControlName="picture8" accept=".jpg,.jpeg,.png"/></td></tr>
+            <tr><td>Picture #9</td><td><input type="file" formControlName="picture9" accept=".jpg,.jpeg,.png"/></td></tr>
+            <tr><td>Picture #10</td><td><input type="file" formControlName="picture10" accept=".jpg,.jpeg,.png"/></td></tr>
+          </table>
+        </form>
+    </div>
+  </div>
+
+  <advert-view advert="advertPreview" *ngIf="activeForm === 'preview'"></advert-view>

@@ -1,0 +1,24 @@
+- var navItems = { 'About': '/about', 'Services': '/services' };
+
+header
+    div.logo-container
+        a(href="/")
+            img(src="/images/WM_Main_Aurum_Trans.png" class="logo" alt="Watch Merchant UK")
+    nav.desktop
+        ul
+            each url, text in navItems
+                li
+                    a(href=url)= text
+            if videoId
+                li
+                    a.js-modal-btn(href="#" data-video-id=videoId) Teaser
+    button.hamburger
+        i.fas.fa-bars.fa-2x
+    nav.mobile
+        div.mobile-nav-wrapper
+            each url, text in navItems
+                div.nav-item
+                    a(href=url)= text
+            if videoId
+                    .nav-item
+                        a.js-modal-btn(data-video-id=videoId) Teaser
